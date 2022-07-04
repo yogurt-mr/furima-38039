@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     # @items = Item.all #includes(:user)
+    pass
   end
 
   # def new
