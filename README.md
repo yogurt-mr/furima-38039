@@ -50,7 +50,6 @@
 | Column                    | Type       | Options                        |
 |---------------------------|------------|--------------------------------|
 | zip_code                  | string     | null: false                    |
-| prefecture                | integer    | null: false                    |
 | city                      | string     | null: false                    |
 | street_number             | string     | null: false                    |
 | building                  | string     |                                |
