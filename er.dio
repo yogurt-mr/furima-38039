@@ -122,7 +122,7 @@
                 <mxCell id="60" value="street_number(String,NotNull)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49">
                     <mxGeometry y="134" width="280" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" value="building(String,NotNull)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49">
+                <mxCell id="61" value="building(String)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49">
                     <mxGeometry y="160" width="280" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="phone_number(Number,NotNull)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49">
