@@ -30,28 +30,30 @@
 | shipping_days_id                    | integer    | null: false                    |
 | price                               | integer    | null: false                    |
 | user                                | references | null: false, foreign_key: true |
-| purchase                            | references | null: false, foreign_key: true |
 
 ### 関連
 - belongs_to :user
-- belongs_to :purchase
+- has_one :purchase
 
 ## purchasesテーブル
 | Column                    | Type       | Options                        |
 |---------------------------|------------|--------------------------------|
 | user                      | references | null: false, foreign_key: true |
 | product                   | references | null: false, foreign_key: true |
-| shipping_address          | references | null: false, foreign_key: true |
 
 ### 関連
 - belongs_to :user
 - belongs_to :product
+- has_one :shipping_address
 
 # shipping_addresses
 | Column                    | Type       | Options                        |
 |---------------------------|------------|--------------------------------|
 | zip_code                  | string     | null: false                    |
-| address                   | string     | null: false                    |
+| prefecture                | string     | null: false                    |
+| city                      | string     | null: false                    |
+| street_number             | string     | null: false                    |
+| building                  | string     | null: true                     |
 | phone_number              | number     | null: false                    |
 | purchase                  | references | null: false, foreign_key: true |
 
