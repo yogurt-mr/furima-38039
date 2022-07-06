@@ -10,9 +10,10 @@ RSpec.describe User, type: :model do
     # end
     it 'ニックネームが必須であること。' do
       # nicknameが空では登録できないテストコードを記述します
-      user = User.new(nickname: '', email: 'test@example', encrypted_password: '000000', 
-        password_confirmation: '000000',last_name:'',first_name:'',last_name_kana:'',first_name_kana:'',dob:DateTime.now)
+      user = User.new(nickname: '', email: 'test@example', password: '000', 
+      password_confirmation: '000000',last_name:'',first_name:'',last_name_kana:'',first_name_kana:'',dob:DateTime.now)
       user.valid?
+      binding.pry
       expect(user.errors.full_messages).to include("Nickname can't be blank")
     end
     it 'メールアドレスが必須であること。' do
