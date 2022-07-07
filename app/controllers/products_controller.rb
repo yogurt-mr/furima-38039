@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
-    # @products = Product.all
+    @products = Product.all
   end
 
   def new
@@ -20,7 +22,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:product_name,:description,:category_id,:product_status_id,:shipping_fee_id,:shipping_area_id,:shipping_day_id,:price, :image).merge(user_id: current_user.id)
+    params.require(:product).permit(:product_name,:description,:category_id,:product_status_id,:shipping_fee_id,:shipping_area_id,:shipping_day_id,:price,:image).merge(user_id: current_user.id)
   end
 
   def set_product
