@@ -4,8 +4,14 @@ RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-  # pending "add some examples to (or delete) #{__FILE__}"
-  describe 'ユーザー新規登録' do
+
+  context  'ユーザ登録ができる時' do
+    it '入力項目が全て条件に当てはまっている時は新規登録が出来る' do
+      expect(@user).to be_valid
+    end
+  end
+  
+  context  'ユーザ登録ができない時' do
      it 'nicknameが空では登録できない' do
        user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
        user.valid?
@@ -44,9 +50,21 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
     end
-    it 'パスワードは、半角英数字混合での入力が必須であること' do
+    it 'パスワードが半角数字のみでは登録できない' do
       @user.password = '000000'
       @user.password_confirmation = '000000'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password is invalid')
+    end
+    it  'パスワードが半角英字のみでは登録できない' do
+      @user.password = 'aabbcc'
+      @user.password_confirmation = 'aabbcc'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password is invalid')
+    end
+    it  'パスワードに全角文字を含むと登録できない' do
+      @user.password = 'ああBB00'
+      @user.password_confirmation = 'ああBB00'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
     end
