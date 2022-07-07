@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  validates :image, presence: true
   validates :product_name, presence: true
   validates :description, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
