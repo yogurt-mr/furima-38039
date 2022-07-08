@@ -11,8 +11,13 @@ RSpec.describe Product, type: :model do
       it '全ての項目が入力されていれば出品ができる' do
         expect(@product).to be_valid
       end
-    
     context '商品出品がうまくいかないとき' do
+      it "ユーザー情報がない場合は登録できないこと" do
+        @product.user = nil
+        @product.valid?
+        expect(@product).to be_invalid
+      end
+
       it 'imageが空では登録されない' do
         @product.image = nil
         @product.valid?
