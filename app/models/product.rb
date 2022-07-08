@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   validates :shipping_fee_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :shipping_area_id,presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :shipping_day_id,presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
-  # validates :price,presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "is out of setting range" },format: { with:/\A[0-9]+\z/}
+  validates :price, presence: true
   with_options format: { with: /\A[0-9]+\z/ } do
     validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 } 
   end

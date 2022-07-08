@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   #   @product = Product.find(params[:id])
   # end
 
-  def contributor_confirmation
-    redirect_to root_path unless current_user == @product.user
-  end
+  # def contributor_confirmation
+  #   redirect_to root_path unless current_user == @product.user
+  # end
 end
