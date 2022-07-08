@@ -82,6 +82,7 @@ RSpec.describe Product, type: :model do
       it 'priceが9999999より少ないと登録できない' do
         @product.price = "10000000"
         @product.valid?
+        binding.pry
         expect(@product.errors.full_messages).to include("Price must be less than 9999999")
       end
     end

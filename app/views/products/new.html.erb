@@ -8,9 +8,8 @@
     <%= form_with class: 'items-sell-main',model: @product, url: products_path, local: true do |f| %>
     <h2 class="items-sell-title">商品の情報を入力</h2>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
     <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
