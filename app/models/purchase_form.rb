@@ -16,8 +16,8 @@ class PurchaseForm
   end
 
   def save
-    @purchase = Purchase.create(user_id: user_id, product_id: product_id)
+    @purchase=Purchase.create(user_id: user_id, product_id: product_id)
     # ストロングパラメーターでデータが運ばれ、それらが保存のタイミングで「purchase_id」が生成され、保存される。
-    @shipping_address = ShippingAddress.create(purchase_id: purchase.id, zip_code: zip_code, shipping_area_id: shipping_area_id, city: city, street_number: street_number, building: building, phone_number: phone_number)
+    ShippingAddress.create(purchase_id: @purchase.id, zip_code: zip_code, shipping_area_id: shipping_area_id, city: city, street_number: street_number, building: building, phone_number: phone_number)
   end
 end
