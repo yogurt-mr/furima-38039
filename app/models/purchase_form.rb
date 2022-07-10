@@ -1,7 +1,7 @@
 class PurchaseForm
   include ActiveModel::Model
   # product_idは、保存されたタイミングで生成されるため、attr_accessorにおいて不要なカラムとなる（書くと蛇足なのでエラー）
-  attr_accessor :user_id, :product_id, :zip_code, :shipping_area_id, :city, :street_number, :building, :phone_number, :token
+  attr_accessor :user_id, :zip_code, :shipping_area_id, :city, :street_number, :building, :phone_number ,:token ,:product_id
 
   # 4行目と同じくこのタイミングでは生成前なので「validates :product_id」は不要
   with_options presence: true do
@@ -16,8 +16,8 @@ class PurchaseForm
   end
 
   def save
-    @purchase=Purchase.create(user_id: user_id, product_id: product_id)
+    purchase=Purchase.create(user_id: user_id, product_id: product_id)
     # ストロングパラメーターでデータが運ばれ、それらが保存のタイミングで「purchase_id」が生成され、保存される。
-    ShippingAddress.create(purchase_id: @purchase.id, zip_code: zip_code, shipping_area_id: shipping_area_id, city: city, street_number: street_number, building: building, phone_number: phone_number)
+    ShippingAddress.create(purchase_id: purchase.id, zip_code: zip_code, shipping_area_id: shipping_area_id, city: city, street_number: street_number, building: building, phone_number: phone_number)
   end
 end
