@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if user_signed_in? || current_user.id == @product.user_id || @product.purchase == nil
+    unless user_signed_in? && current_user.id == @product.user_id && @product.purchase == nil
       redirect_to root_path
     end
   end
