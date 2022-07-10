@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @product.user_id
+    unless user_signed_in? && current_user.id == @product.user_id && @product.purchase == nil
       redirect_to root_path
     end
   end
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if user_signed_in? && current_user.id == @product.user_id
+    if user_signed_in? && current_user.id == @product.user_id && @product.purchase == nil
       @product.destroy
     end
     redirect_to root_path
