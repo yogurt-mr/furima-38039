@@ -19,6 +19,6 @@ class Product < ApplicationRecord
   validates :shipping_day_id,presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :price, presence: true
   with_options format: { with: /\A[0-9]+\z/ } do
-    validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 } 
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 } 
   end
 end
