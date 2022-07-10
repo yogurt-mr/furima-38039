@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :last_name_kana, format: {with:/\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :first_name_kana, format: {with:/\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :dob, presence: true
-  has_many :purchase
-  has_many :product
+  has_many :purchases
+  has_many :products
 
 end
