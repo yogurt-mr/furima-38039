@@ -10,10 +10,6 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def new
-    @purchase_form = PurchaseForm.new
-  end
-
   def create
     @purchase_form = PurchaseForm.new(purchase_params)
     if @purchase_form.valid?
