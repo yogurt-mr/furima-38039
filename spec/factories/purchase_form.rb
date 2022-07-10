@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :purchase_form do
-    # token          {'tok_abcdefghijk00000000000000000'}
-    postal_code    {'123-4567'}
+    user_id    {'1'}
+    product_id {'1'}
+    token          {'tok_abcdefghijk00000000000000000'}
+    zip_code    {'123-4567'}
     shipping_area_id  {3}
     city      {'長崎市'}
     street_number     {'1-1-1'}
