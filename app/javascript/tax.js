@@ -11,4 +11,5 @@ function tax() {
       profit.innerHTML = saleProfit;
   });
 }
+
 window.addEventListener("load", tax);
